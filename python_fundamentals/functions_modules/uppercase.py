@@ -4,7 +4,8 @@
 
 def uppercase(str):
     """Imprime la cadena en mayúsculas usando lógica ASCII."""
-    text = str if type(str) is str else str(str)
+    # Convertimos el argumento a texto de forma segura sin romper el prototipo
+    text = __import__('builtins').str(str)
     res = ""
     for c in text:
         ascii_val = ord(c)
