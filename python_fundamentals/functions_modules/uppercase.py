@@ -4,13 +4,13 @@
 
 def uppercase(str):
     """Imprime la cadena en mayúsculas usando lógica ASCII."""
-    # Convertimos a string por si pasan un entero o tipo no iterable
-    text = f"{str}"
-    result = ""
+    # Convertimos a string de la forma más estándar posible
+    text = str if type(str) is str else str(str)
+    res = ""
     for c in text:
-        code = ord(c)
-        if 97 <= code <= 122:
-            result += chr(code - 32)
+        ascii_val = ord(c)
+        if 97 <= ascii_val <= 122:
+            res += chr(ascii_val - 32)
         else:
-            result += c
-    print(result)
+            res += c
+    print(res)
