@@ -4,11 +4,9 @@
 
 def uppercase(str):
     """Imprime la cadena en mayúsculas usando lógica ASCII."""
-    res = ""
     for c in str:
-        ascii_val = ord(c)
-        if 97 <= ascii_val <= 122:
-            res += chr(ascii_val - 32)
-        else:
-            res += c
-    print(res)
+        code = ord(c)
+        if 97 <= code <= 122:
+            c = chr(code - 32)
+        print("{}".format(c), end="")
+    print("")
