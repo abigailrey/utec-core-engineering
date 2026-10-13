@@ -4,7 +4,6 @@
 
 def uppercase(str):
     """Imprime la cadena en mayúsculas usando lógica ASCII."""
-    # Convertimos a string de la forma más estándar posible
     text = str if type(str) is str else str(str)
     res = ""
     for c in text:
