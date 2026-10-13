@@ -2,9 +2,10 @@
 """Módulo que contiene una función para convertir cadenas a mayúsculas."""
 
 
-def uppercase(str_v):
+def uppercase(str):
     """Imprime la cadena en mayúsculas usando lógica ASCII."""
-    text = str(str_v)
+    # Convertimos a string por si pasan un entero o tipo no iterable
+    text = f"{str}"
     result = ""
     for c in text:
         code = ord(c)
