@@ -393,3 +393,74 @@ EOF
 chmod +x python_fundamentals/exception_handling/safe_print_integer.py
 chmod +x python_fundamentals/exception_handling/*.py 2>/dev/null || true
 # Limpiar el índice de Git y registrar los archivos en la ruta correcta
+git add -A
+git commit -m "Fix directory structure for safe_print_integer.py" || true
+git push origin master --force
+cd ~/utec-core-engineering
+# 1. Eliminar del seguimiento de Git los archivos ocultos y carpetas erróneas
+git rm -rf .bash_history .bashrc .openvscode-server .profile .ssh utec-core-engineering 2>/dev/null || true
+# 2. Asegurar que README.md esté en la raíz
+echo "# UTEC Core Engineering" > README.md
+# 3. Crear la estructura de carpeta correcta para el proyecto
+mkdir -p python_fundamentals/exception_handling/
+# 4. Crear el archivo safe_print_integer.py
+cat << 'EOF' > python_fundamentals/exception_handling/safe_print_integer.py
+#!/usr/bin/env python3
+
+
+
+def safe_print_integer(value):
+    try:
+        print("{:d}".format(value))
+        return True
+    except (ValueError, TypeError):
+        return False
+EOF
+
+# 5. Asignar permisos de ejecución
+chmod +x python_fundamentals/exception_handling/safe_print_integer.py
+# 6. Guardar cambios limpios en Git
+git add README.md python_fundamentals/
+git commit -m "Clean repo structure and add safe_print_integer.py" || true
+--force
+git push origin master:main --force
+cd ~/utec-core-engineering
+# 1. Actualizar la URL remota con las minúsculas exactas que pide GitHub
+git remote set-url origin https://github.com/abigailrey/utec-core-engineering.git
+# 2. Forzar la subida a master
+git push origin master --force
+# 3. Forzar la subida a main
+git push origin master:main --force
+cd ~/utec-core-engineering
+# 1. Crear carpetas si no existen
+mkdir -p python_fundamentals/exception_handling/
+# 2. Crear archivos __init__.py obligatorios para que Python reconozca los paquetes
+touch python_fundamentals/__init__.py
+touch python_fundamentals/exception_handling/__init__.py
+# 3. Actualizar safe_print_integer.py con la estructura y docstrings requeridos
+cat << 'EOF' > python_fundamentals/exception_handling/safe_print_integer.py
+#!/usr/bin/env python3
+
+"""Module that provides a function to safely print an integer."""
+
+
+def safe_print_integer(value):
+    """Prints an integer with {:d}.format()
+
+    Args:
+        value: Can be any type (integer, string, etc.)
+
+    Returns:
+        True if value is an integer and printed correctly,
+        False otherwise.
+    """
+    try:
+        print("{:d}".format(value))
+        return True
+    except (ValueError, TypeError):
+        return False
+EOF
+
+# 4. Dar permisos de ejecución
+chmod +x python_fundamentals/exception_handling/safe_print_integer.py
+# 5. Registrar cambios en Git
