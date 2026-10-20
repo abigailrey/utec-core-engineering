@@ -464,3 +464,83 @@ EOF
 # 4. Dar permisos de ejecución
 chmod +x python_fundamentals/exception_handling/safe_print_integer.py
 # 5. Registrar cambios en Git
+git add -A
+git commit -m "Add missing __init__.py files and docstrings for safe_print_integer" || true
+git push origin master --force
+cd ~/utec-core-engineering
+# 1. Configurar credenciales de Git solicitadas
+git config user.name "Abigailrey"
+git config user.email "abigailrey4@gmail.com"
+git remote set-url origin https://github.com/abigailrey/utec-core-engineering.git
+# 2. Asegurar README.md en la raíz
+echo "# utec-core-engineering" > README.md
+# 3. Crear la estructura de directorios exacta para la nueva tarea
+mkdir -p python_advanced/file_handling/
+# 4. Crear archivos __init__.py para los paquetes de Python
+touch python_advanced/__init__.py
+touch python_advanced/file_handling/__init__.py
+# 5. Crear el archivo read_file.py con docstring y la función requerida
+cat << 'EOF' > python_advanced/file_handling/read_file.py
+#!/usr/bin/env python3
+
+"""Module that provides a function to read text files."""
+
+
+def read_file(filename=""):
+    """Reads a text file (UTF-8) and prints it to stdout using with statement."""
+    with open(filename, encoding="utf-8") as f:
+        print(f.read(), end="")
+EOF
+
+# 6. Dar permisos de ejecución al script
+chmod +x python_advanced/file_handling/read_file.py
+# 7. Registrar cambios en Git
+git add README.md python_advanced/
+git commit -m "Add file_handling task 0: read_file.py" || true
+python_advanced/file_handling/read_file.py
+archivo
+cd ~/utec-core-engineering
+# Mover el contenido de la subcarpeta si existe
+if [ -d "utec-core-engineering" ]; then     cp -r utec-core-engineering/* .;     rm -rf utec-core-engineering; fi
+# Eliminar el índice anterior y volver a registrar los archivos limpios
+git rm -r --cached utec-core-engineering 2>/dev/null || true
+git add README.md python_advanced/
+git commit -m "Fix path for python_advanced/file_handling/read_file.py" || true
+git push origin master --force
+no changes added to commit (use "git add" and/or "git commit -a")
+root@665d126507db408cbc498d021d5870d1-2377118072:~/utec-core-engineering# git push origin master --force
+Username for 'https://github.com': Abigailrey
+Password for 'https://Abigailrey@github.com': 
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 764 bytes | 764.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/abigailrey/utec-core-engineering.git
+root@665d126507db408cbc498d021d5870d1-2377118072:~/utec-core-engineering# 
+git push origin master:main --force
+cd ~/utec-core-engineering
+# 1. Asegurar que la estructura esté limpia y en la raíz
+mkdir -p python_advanced/file_handling/
+# 2. Recrear el archivo en la ruta exacta exigida
+cat << 'EOF' > python_advanced/file_handling/read_file.py
+#!/usr/bin/env python3
+
+"""Module that provides a function to read text files."""
+
+
+def read_file(filename=""):
+    """Reads a text file (UTF-8) and prints it to stdout using with statement."""
+    with open(filename, encoding="utf-8") as f:
+        print(f.read(), end="")
+EOF
+
+# 3. Dar permisos de ejecución
+chmod +x python_advanced/file_handling/read_file.py
+# 4. Asegurar que README.md y los paquetes estén en su sitio
+touch python_advanced/__init__.py
+touch python_advanced/file_handling/__init__.py
+echo "# utec-core-engineering" > README.md
+# 5. Registrar y subir los cambios limpios
