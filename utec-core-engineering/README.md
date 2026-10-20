@@ -1,1 +1,1 @@
-# UTEC Core Engineering
+# utec-core-engineering
