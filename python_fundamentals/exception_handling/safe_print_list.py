@@ -2,10 +2,11 @@
 
 
 def safe_print_list(my_list=[], x=0):
+    """Prints x elements of a list safely."""
     nb_print = 0
     for i in range(x):
         try:
-            print(my_list[i], end='')
+            print(my_list[i], end="")
             nb_print += 1
         except IndexError:
             break
