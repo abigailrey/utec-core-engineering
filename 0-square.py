@@ -1,13 +1,7 @@
 #!/usr/bin/env python3
-"""
-Módulo 0-square
-Define una clase vacía llamada Square.
-
-Author: Abigailrey
-Email: abigailrey4@gmail.com
-"""
+"""Defines a square"""
 
 
 class Square:
-    """Representa un cuadrado (clase vacía por ahora)."""
+    """Represent a square."""
     pass
